@@ -27,7 +27,7 @@ composer require revolution/laravel-str-mixins
 ### Str::wordwrap(string $str, int $width = 10, string $break = PHP_EOL)
 指定の文字数で改行。単純に改行なので禁則処理などはない。
 
-```
+```php
 $text = Str::wordwrap('abcde', 3);
 
 // abc
@@ -37,7 +37,7 @@ $text = Str::wordwrap('abcde', 3);
 ### Str::kana(?string $str, string $option = 'KV', string $encoding = null)
 `mb_convert_kana()`と同じ。
 
-```
+```php
 $text = Str::kana('abｃあいうｱｲｳ', 'KVa');
 
 // abcあいうアイウ
@@ -47,7 +47,7 @@ $text = Str::kana('abｃあいうｱｲｳ', 'KVa');
 
 ### wordwrap()
 
-```
+```php
 $text = Str::of('abcde')->wordwrap(3);
 
 // abc
@@ -56,7 +56,7 @@ $text = Str::of('abcde')->wordwrap(3);
 
 ### kana()
 
-```
+```php
 $text = Str::of('abｃあいうｱｲｳ')->kana('KVa');
 
 // abcあいうアイウ
