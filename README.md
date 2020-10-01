@@ -8,7 +8,14 @@
 
 ## Requirements
 - PHP >= 7.3
-- Laravel >= 8.0
+- Laravel >= 7.0
+
+Fluent StringsはLaravel7以降のみなので6(LTS)は対象外。
+
+## Versioning
+- 基本的にはセマンティックバージョニング。
+- サポート期間はPHP本体やLaravelと同じなのでサポート終了した旧バージョンは`+0.1`のバージョンアップで躊躇なく切っていく。
+- 旧メジャーバージョンは別ブランチで残す。
 
 ## Installation
 ```

@@ -8,9 +8,6 @@
     <include>
       <directory suffix=".php">src/</directory>
     </include>
-    <exclude>
-      <file>src/*ServiceProvider.php</file>
-    </exclude>
     <report>
       <clover outputFile="build/logs/clover.xml"/>
     </report>
