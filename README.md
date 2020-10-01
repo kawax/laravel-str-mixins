@@ -24,7 +24,7 @@ composer require revolution/laravel-str-mixins
 
 ## Str
 
-### Str::wordwrap(string $str, int $width = 10, string $break = PHP_EOL)
+### Str::wordwrap(?string $str, int $width = 10, string $break = PHP_EOL)
 指定の文字数で改行。単純に改行なので禁則処理などはない。
 
 ```php
