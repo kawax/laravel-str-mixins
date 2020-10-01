@@ -3,6 +3,7 @@
 namespace Revolution\Laravel\Mixins\Stringable;
 
 use Illuminate\Support\Str;
+use Illuminate\Support\Stringable;
 
 class Japanese
 {
@@ -15,7 +16,7 @@ class Japanese
     public function kana()
     {
         return function (string $option = 'KV', string $encoding = null) {
-            return new static(Str::kana($this->value, $option, $encoding));
+            return new Stringable(Str::kana($this->value, $option, $encoding));
         };
     }
 
@@ -28,7 +29,7 @@ class Japanese
     public function wordwrap()
     {
         return function (int $width = 10, string $break = PHP_EOL) {
-            return new static(Str::wordwrap($this->value, $width, $break));
+            return new Stringable(Str::wordwrap($this->value, $width, $break));
         };
     }
 }

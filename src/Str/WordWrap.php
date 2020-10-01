@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 class WordWrap
 {
     /**
-     * @param  string  $str
+     * @param  string|null  $str
      * @param  int  $width
      * @param  string  $break
      *
@@ -15,7 +15,7 @@ class WordWrap
      */
     public function wordwrap()
     {
-        return function (string $str, int $width = 10, string $break = PHP_EOL) {
+        return function (?string $str, int $width = 10, string $break = PHP_EOL) {
             return Str::of($str)
                 ->split('/\B/u')
                 ->chunk($width)
