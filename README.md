@@ -62,5 +62,15 @@ $text = Str::of('abｃあいうｱｲｳ')->kana('KVa');
 // abcあいうアイウ
 ```
 
+繋げて使う用。
+
+```php
+$text = Str::of('abｃあいうｱｲｳ')->kana('KVa')->wordwrap(3);
+
+// abc
+// あいう
+// アイウ
+```
+
 ## LICENSE
 MIT  
