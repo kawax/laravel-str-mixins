@@ -10,6 +10,7 @@ class StringableTest extends TestCase
     {
         $text = Str::of('abｃあいうｱｲｳ')->kana('KVa');
 
+        // $textはStringable ObjectなのでassertSame()ではなくassertEquals()を使う
         $this->assertEquals('abcあいうアイウ', $text);
     }
 
