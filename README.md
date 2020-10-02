@@ -18,7 +18,7 @@
 |ver|PHP|Laravel|
 |---|---|-------|
 |1.x|^7.4|^6.0  |
-|2.x|^7.3|^7.0  |
+|2.x|^7.4|^7.0  |
 
 - v1.xはLaravel6のみ。
 - v2.xはFluent StringsのためにLaravel7以上のみ対応。
