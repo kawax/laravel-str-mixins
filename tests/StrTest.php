@@ -8,9 +8,9 @@ class StrTest extends TestCase
 {
     public function testStrWordWrap()
     {
-        $text = Str::wordwrap('abcde', 3);
-
-        $this->assertEquals("abc\nde", $text);
+        $this->assertEquals("abc\nde", Str::wordwrap('abcde', 3));
+        $this->assertEquals("あいう\nえお", Str::wordwrap('あいうえお', 3));
+        $this->assertEquals("あい\nう\n\nえお", Str::wordwrap("あいう\nえお", 2));
     }
 
     public function testStrKana()

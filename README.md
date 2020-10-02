@@ -7,7 +7,7 @@
 `Illuminate\Support\Str`を拡張する主に日本語用のmixin
 
 ## Requirements
-- PHP >= 7.3
+- PHP >= 7.4
 - Laravel >= 7.0
 
 ## Versioning
@@ -18,7 +18,7 @@
 |ver|PHP|Laravel|
 |---|---|-------|
 |[1.x](https://github.com/kawax/laravel-str-mixins/tree/1.x)|^7.4|^6.0  |
-|2.x|^7.3|^7.0  |
+|2.x|^7.4|^7.0  |
 
 - v1.xはLaravel6のみ。
 - v2.xはFluent StringsのためにLaravel7以上のみ対応。
