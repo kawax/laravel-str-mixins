@@ -7,7 +7,7 @@
 `Illuminate\Support\Str`を拡張する主に日本語用のmixin
 
 ## Requirements
-- PHP >= 7.3
+- PHP >= 7.4
 - Laravel >= 7.0
 
 Fluent StringsはLaravel7以降のみなので6(LTS)は対象外。
