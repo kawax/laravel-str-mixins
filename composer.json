@@ -10,12 +10,12 @@
     "require": {
         "php": "^7.4||^8.0",
         "ext-mbstring": "*",
-        "illuminate/support": "^7.0||^8.0"
+        "illuminate/support": "^6.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.3",
         "mockery/mockery": "^1.4.2",
-        "orchestra/testbench": "^5.0||^6.0"
+        "orchestra/testbench": "^4.0"
     },
     "autoload": {
         "psr-4": {

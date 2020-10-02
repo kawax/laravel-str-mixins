@@ -2,8 +2,6 @@
 
 namespace Revolution\Laravel\Mixins\Str;
 
-use Illuminate\Support\Str;
-
 class WordWrap
 {
     /**
@@ -16,14 +14,10 @@ class WordWrap
     public function wordwrap()
     {
         return function (?string $str, int $width = 10, string $break = PHP_EOL) {
-            return Str::of($str)
-                ->split('/\B/u')
+            return collect(mb_str_split($str))
                 ->chunk($width)
-                ->mapSpread(
-                    function (...$strings) {
-                        return tap(collect($strings))->pop()->implode('');
-                    }
-                )->implode($break);
+                ->mapSpread(fn(...$strings) => tap(collect($strings))->pop()->implode(''))
+                ->implode($break);
         };
     }
 }

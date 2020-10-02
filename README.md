@@ -8,18 +8,24 @@
 
 ## Requirements
 - PHP >= 7.4
-- Laravel >= 7.0
-
-Fluent StringsはLaravel7以降のみなので6(LTS)は対象外。
+- Laravel >= 6.0
 
 ## Versioning
 - 基本的にはセマンティックバージョニング。
 - サポート期間はPHP本体やLaravelと同じなのでサポート終了した旧バージョンは`+0.1`のバージョンアップで躊躇なく切っていく。
 - 旧メジャーバージョンは別ブランチで残す。
 
+|ver|PHP|Laravel|
+|---|---|-------|
+|1.x|^7.4|^6.0  |
+|2.x|^7.3|^7.0  |
+
+- v1.xはLaravel6のみ。
+- v2.xはFluent StringsのためにLaravel7以上のみ対応。
+
 ## Installation
 ```
-composer require revolution/laravel-str-mixins
+composer require revolution/laravel-str-mixins:^1.0
 ```
 
 ## Str
@@ -41,35 +47,6 @@ $text = Str::wordwrap('abcde', 3);
 $text = Str::kana('abｃあいうｱｲｳ', 'KVa');
 
 // abcあいうアイウ
-```
-
-## Fluent Strings
-
-### wordwrap()
-
-```php
-$text = Str::of('abcde')->wordwrap(3);
-
-// abc
-// de
-```
-
-### kana()
-
-```php
-$text = Str::of('abｃあいうｱｲｳ')->kana('KVa');
-
-// abcあいうアイウ
-```
-
-繋げて使う用。
-
-```php
-$text = Str::of('abｃあいうｱｲｳ')->kana('KVa')->wordwrap(3);
-
-// abc
-// あいう
-// アイウ
 ```
 
 ## LICENSE
