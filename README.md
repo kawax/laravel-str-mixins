@@ -40,6 +40,8 @@ $text = Str::wordwrap('abcde', 3);
 // de
 ```
 
+元々はOGP画像の幅に収めるための強引な改行が目的。
+
 ### Str::kana(?string $str, string $option = 'KV', string $encoding = null)
 `mb_convert_kana()`と同じ。
 
