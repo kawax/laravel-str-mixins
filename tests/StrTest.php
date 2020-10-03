@@ -11,6 +11,7 @@ class StrTest extends TestCase
         $this->assertSame("abc\nde", Str::wordwrap('abcde', 3));
         $this->assertSame("あいう\nえお", Str::wordwrap('あいうえお', 3));
         $this->assertSame("あい\nう\n\nえお", Str::wordwrap("あいう\nえお", 2));
+        $this->assertSame("ｱｲｳ\nｴｵ", Str::wordwrap("ｱｲｳｴｵ", 3));
     }
 
     public function testStrKana()
