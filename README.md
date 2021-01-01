@@ -7,7 +7,7 @@
 `Illuminate\Support\Str`を拡張する主に日本語用のmixin
 
 ## Requirements
-- PHP >= 7.2
+- PHP >= 7.3
 - Laravel >= 7.0
 
 ## Versioning
