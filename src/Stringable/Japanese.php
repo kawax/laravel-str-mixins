@@ -14,7 +14,7 @@ class Japanese
      */
     public function kana()
     {
-        return fn(string $option = 'KV', string $encoding = null) => new Stringable(Str::kana($this->value, $option, $encoding));
+        return fn (string $option = 'KV', string $encoding = null) => new Stringable(Str::kana($this->value, $option, $encoding));
     }
 
     /**
@@ -24,6 +24,6 @@ class Japanese
      */
     public function wordwrap()
     {
-        return fn(int $width = 10, string $break = PHP_EOL) => new Stringable(Str::wordwrap($this->value, $width, $break));
+        return fn (int $width = 10, string $break = PHP_EOL) => new Stringable(Str::wordwrap($this->value, $width, $break));
     }
 }

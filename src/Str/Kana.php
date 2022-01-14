@@ -12,6 +12,6 @@ class Kana
      */
     public function kana()
     {
-        return fn(?string $str, string $option = 'KV', string $encoding = null) => mb_convert_kana($str, $option, $encoding ?? mb_internal_encoding());
+        return fn (?string $str, string $option = 'KV', string $encoding = null) => mb_convert_kana($str, $option, $encoding ?? mb_internal_encoding());
     }
 }
