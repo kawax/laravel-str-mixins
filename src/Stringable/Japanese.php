@@ -10,7 +10,6 @@ class Japanese
     /**
      * @param  string  $option
      * @param  string  $encoding
-     *
      * @return callable
      */
     public function kana()
@@ -23,7 +22,6 @@ class Japanese
     /**
      * @param  int  $width
      * @param  string  $break
-     *
      * @return callable
      */
     public function wordwrap()

@@ -8,7 +8,6 @@ class WordWrap
      * @param  string|null  $str
      * @param  int  $width
      * @param  string  $break
-     *
      * @return callable
      */
     public function wordwrap()
