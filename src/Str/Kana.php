@@ -8,7 +8,6 @@ class Kana
      * @param  string|null  $str
      * @param  string  $option
      * @param  string  $encoding
-     *
      * @return callable
      */
     public function kana()
