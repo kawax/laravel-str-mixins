@@ -12,8 +12,6 @@ class WordWrap
      */
     public function wordwrap()
     {
-        return function (?string $str, int $width = 10, string $break = PHP_EOL) {
-            return implode($break, mb_str_split($str, $width));
-        };
+        return fn(?string $str, int $width = 10, string $break = PHP_EOL) => implode($break, mb_str_split($str, $width));
     }
 }
