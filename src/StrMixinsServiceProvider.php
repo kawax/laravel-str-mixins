@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Revolution\Laravel\Mixins;
 
 use Illuminate\Support\ServiceProvider;
@@ -8,7 +10,6 @@ use Illuminate\Support\Stringable;
 use Revolution\Laravel\Mixins\Str\Kana;
 use Revolution\Laravel\Mixins\Str\Truncate;
 use Revolution\Laravel\Mixins\Str\WordWrap;
-use Revolution\Laravel\Mixins\Stringable\Japanese;
 
 class StrMixinsServiceProvider extends ServiceProvider
 {
@@ -19,10 +20,30 @@ class StrMixinsServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Stringable::mixin(new Japanese());
-
-        Str::mixin(new WordWrap());
-        Str::mixin(new Kana());
+        Str::macro('wordwrap', new WordWrap());
+        Str::macro('kana', new Kana());
         Str::macro('truncate', new Truncate());
+
+        $this->fluent();
+    }
+
+    protected function fluent(): void
+    {
+        Stringable::macro('wordwrap', function (int $width = 10, string $break = PHP_EOL): static {
+            /** @var Stringable $this */
+            return new static(Str::wordwrap($this->value ?? '', $width,
+                $break));
+        });
+
+        Stringable::macro('kana', function (string $option = 'KV', string $encoding = 'UTF-8'): static {
+            /** @var Stringable $this */
+            return new static(Str::kana($this->value ?? '', $option,
+                $encoding));
+        });
+
+        Stringable::macro('truncate', function (int $limit = 100, string $end = '...'): static {
+            /** @var Stringable $this */
+            return new static(Str::truncate($this->value ?? '', $limit, $end));
+        });
     }
 }

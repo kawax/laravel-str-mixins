@@ -1,17 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Revolution\Laravel\Mixins\Str;
 
 class WordWrap
 {
-    /**
-     * @param  string|null  $str
-     * @param  int  $width
-     * @param  string  $break
-     * @return callable
-     */
-    public function wordwrap()
+    public function __invoke(string $str, int $width = 10, string $break = PHP_EOL): string
     {
-        return fn (?string $str, int $width = 10, string $break = PHP_EOL) => implode($break, mb_str_split($str, $width));
+        return implode($break, mb_str_split($str, $width));
     }
 }

@@ -30,11 +30,11 @@ composer require revolution/laravel-str-mixins
 
 ## Str
 
-### Str::wordwrap(?string $str, int $width = 10, string $break = PHP_EOL)
+### Str::wordwrap(string $str, int $width = 10, string $break = PHP_EOL): string
 指定の文字数で改行。単純に改行なので禁則処理などはない。
 
 ```php
-$text = Str::wordwrap('abcde', 3);
+$text = Str::wordwrap(str: 'abcde', width: 3);
 
 // abc
 // de
@@ -42,30 +42,47 @@ $text = Str::wordwrap('abcde', 3);
 
 元々はOGP画像の幅に収めるための強引な改行が目的。
 
-### Str::kana(?string $str, string $option = 'KV', string $encoding = null)
+### Str::kana(string $str, string $option = 'KV', string $encoding = 'UTF-8'): string
 `mb_convert_kana()`と同じ。
 
 ```php
-$text = Str::kana('abｃあいうｱｲｳ', 'KVa');
+$text = Str::kana(str: 'abｃあいうｱｲｳ', option: 'KVa');
 
 // abcあいうアイウ
 ```
 
-## Fluent Strings
-
-### wordwrap()
+### Str::truncate(string $str, int $limit = 100, string $end = '...'): string
+`Str::limit()`は半角は1、全角は2でカウントされて切り捨て。マルチバイト関数を使っているけど文字の幅でカウントしている。
 
 ```php
-$text = Str::of('abcde')->wordwrap(3);
+$text = Str::limit('abcあいうえお', 7);
+
+// abcあい...
+```
+
+日本語だと期待した動作ではないので文字数でカウントして切り捨てる`Str::truncate()`
+
+```php
+$text = Str::truncate(str: 'abcあいうえお', limit: 7);
+
+// abcあいうえ...
+```
+
+## Fluent Strings
+
+### wordwrap(int $width = 10, string $break = PHP_EOL): Stringable
+
+```php
+$text = Str::of('abcde')->wordwrap(width: 3)->value();
 
 // abc
 // de
 ```
 
-### kana()
+### kana(string $option = 'KV', string $encoding = 'UTF-8'): Stringable
 
 ```php
-$text = Str::of('abｃあいうｱｲｳ')->kana('KVa');
+$text = Str::of('abｃあいうｱｲｳ')->kana(option: 'KVa')->value();
 
 // abcあいうアイウ
 ```
@@ -73,11 +90,18 @@ $text = Str::of('abｃあいうｱｲｳ')->kana('KVa');
 繋げて使う用。
 
 ```php
-$text = Str::of('abｃあいうｱｲｳ')->kana('KVa')->wordwrap(3);
+$text = Str::of('abｃあいうｱｲｳ')->kana(option: 'KVa')->wordwrap(3)->value();
 
 // abc
 // あいう
 // アイウ
+```
+
+### truncate(int $limit = 100, string $end = '...'): Stringable
+```php
+$text = Str::of('abcあいうえお')->truncate(limit: 6, end: '___')->value();
+
+// abcあいう___
 ```
 
 ## LICENSE

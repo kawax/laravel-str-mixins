@@ -23,12 +23,9 @@ class StrTest extends TestCase
 
     public function testStrTruncate()
     {
-        $text = Str::truncate('abcあいうえお');
-
-        $this->assertSame('abcあいうえお', $text);
-
-        $text = Str::truncate('abcあいうえお', 5);
-
-        $this->assertSame('abcあい...', $text);
+        $this->assertSame('abcあいうえお', Str::truncate(str: 'abcあいうえお'));
+        $this->assertSame('abcあいうえ...', Str::truncate(str: 'abcあいうえお', limit: 7));
+        $this->assertSame('abcあいう___', Str::truncate(str: 'abcあいうえお', limit: 6, end: '___'));
+        $this->assertSame('abcあい...', Str::limit('abcあいうえお', 7));
     }
 }
