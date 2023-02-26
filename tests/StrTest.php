@@ -20,4 +20,15 @@ class StrTest extends TestCase
 
         $this->assertSame('abcあいうアイウ', $text);
     }
+
+    public function testStrTruncate()
+    {
+        $text = Str::truncate('abcあいうえお');
+
+        $this->assertSame('abcあいうえお', $text);
+
+        $text = Str::truncate('abcあいうえお', 5);
+
+        $this->assertSame('abcあい...', $text);
+    }
 }
