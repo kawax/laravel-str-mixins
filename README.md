@@ -24,8 +24,13 @@
 - v2.xはFluent StringsのためにLaravel7以上のみ対応。
 
 ## Installation
-```
+```shell
 composer require revolution/laravel-str-mixins
+```
+
+### Uninstall
+```shell
+composer remove revolution/laravel-str-mixins
 ```
 
 ## Str
