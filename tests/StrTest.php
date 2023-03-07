@@ -12,13 +12,13 @@ class StrTest extends TestCase
         $this->assertSame("あいう\nえお", Str::wordwrap('あいうえお', 3));
         $this->assertSame("あい\nう\n\nえお", Str::wordwrap("あいう\nえお", 2));
         $this->assertSame("ｱｲｳ\nｴｵ", Str::wordwrap('ｱｲｳｴｵ', 3));
+        $this->assertSame('', Str::wordwrap(null, 3));
     }
 
     public function testStrKana()
     {
-        $text = Str::kana('abｃあいうｱｲｳ', 'KVa');
-
-        $this->assertSame('abcあいうアイウ', $text);
+        $this->assertSame('abcあいうアイウ', Str::kana('abｃあいうｱｲｳ', 'KVa'));
+        $this->assertSame('', Str::kana(null));
     }
 
     public function testStrTruncate()
@@ -27,5 +27,6 @@ class StrTest extends TestCase
         $this->assertSame('abcあいうえ...', Str::truncate(str: 'abcあいうえお', limit: 7));
         $this->assertSame('abcあいう___', Str::truncate(str: 'abcあいうえお', limit: 6, end: '___'));
         $this->assertSame('abcあい...', Str::limit('abcあいうえお', 7));
+        $this->assertSame('', Str::truncate(null, 1));
     }
 }
