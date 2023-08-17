@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Revolution\Laravel\Mixins\Str;
 
-class WordWrap
+class TextWrap
 {
     public function __invoke(?string $str, int $width = 10, string $break = PHP_EOL): string
     {

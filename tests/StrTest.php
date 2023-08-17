@@ -6,13 +6,15 @@ use Illuminate\Support\Str;
 
 class StrTest extends TestCase
 {
-    public function testStrWordWrap()
+    public function testStrTextWrap()
     {
-        $this->assertSame("abc\nde", Str::wordwrap('abcde', 3));
-        $this->assertSame("あいう\nえお", Str::wordwrap('あいうえお', 3));
-        $this->assertSame("あい\nう\n\nえお", Str::wordwrap("あいう\nえお", 2));
-        $this->assertSame("ｱｲｳ\nｴｵ", Str::wordwrap('ｱｲｳｴｵ', 3));
-        $this->assertSame('', Str::wordwrap(null, 3));
+        $this->assertSame("abc\nde", Str::textwrap('abcde', 3));
+        $this->assertSame("あいう\nえお", Str::textwrap('あいうえお', 3));
+        $this->assertSame("あい\nう\n\nえお", Str::textwrap("あいう\nえお", 2));
+        $this->assertSame("ｱｲｳ\nｴｵ", Str::textwrap('ｱｲｳｴｵ', 3));
+        $this->assertSame('', Str::textwrap(null, 3));
+
+        $this->assertNotSame("あいう\nえお", Str::wordWrap('あいうえお', 3));
     }
 
     public function testStrKana()

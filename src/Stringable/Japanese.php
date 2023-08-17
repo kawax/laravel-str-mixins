@@ -17,10 +17,10 @@ class Japanese
         };
     }
 
-    public function wordwrap(): Closure
+    public function textwrap(): Closure
     {
         return function (int $width = 10, string $break = PHP_EOL): Stringable {
-            return new Stringable(Str::wordwrap($this->value, $width, $break));
+            return new Stringable(Str::textwrap($this->value, $width, $break));
         };
     }
 

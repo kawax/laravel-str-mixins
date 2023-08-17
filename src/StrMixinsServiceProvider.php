@@ -10,7 +10,7 @@ use Illuminate\Support\Stringable;
 use ReflectionException;
 use Revolution\Laravel\Mixins\Str\Kana;
 use Revolution\Laravel\Mixins\Str\Truncate;
-use Revolution\Laravel\Mixins\Str\WordWrap;
+use Revolution\Laravel\Mixins\Str\TextWrap;
 use Revolution\Laravel\Mixins\Stringable\Japanese;
 
 class StrMixinsServiceProvider extends ServiceProvider
@@ -22,7 +22,7 @@ class StrMixinsServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Str::macro('wordwrap', new WordWrap());
+        Str::macro('textwrap', new TextWrap());
         Str::macro('kana', new Kana());
         Str::macro('truncate', new Truncate());
 

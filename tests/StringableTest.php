@@ -13,9 +13,9 @@ class StringableTest extends TestCase
         $this->assertSame('abcあいうアイウ', $text);
     }
 
-    public function testKanaWordWrap()
+    public function testKanaTextWrap()
     {
-        $text = Str::of('abｃあいうｱｲｳ')->kana('KVa')->wordwrap(3)->value();
+        $text = Str::of('abｃあいうｱｲｳ')->kana('KVa')->textwrap(3)->value();
 
         $this->assertSame("abc\nあいう\nアイウ", $text);
     }

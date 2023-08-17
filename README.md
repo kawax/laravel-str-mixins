@@ -35,17 +35,19 @@ composer remove revolution/laravel-str-mixins
 
 ## Str
 
-### Str::wordwrap(string $str, int $width = 10, string $break = PHP_EOL): string
+### Str::textwrap(string $str, int $width = 10, string $break = PHP_EOL): string
 指定の文字数で改行。単純に改行なので禁則処理などはない。
 
 ```php
-$text = Str::wordwrap(str: 'abcde', width: 3);
+$text = Str::textwrap(str: 'abcde', width: 3);
 
 // abc
 // de
 ```
 
 元々はOGP画像の幅に収めるための強引な改行が目的。
+
+Laravel 10.19.0で同名の`Str::wordWrap()`が追加されたので`textwrap`に変更。動作が違うので削除せず残し。`Str::wordWrap()`は日本語では期待した動作にならない。
 
 ### Str::kana(string $str, string $option = 'KV', string $encoding = 'UTF-8'): string
 `mb_convert_kana()`と同じ。
@@ -75,10 +77,10 @@ $text = Str::truncate(str: 'abcあいうえお', limit: 7);
 
 ## Fluent Strings
 
-### wordwrap(int $width = 10, string $break = PHP_EOL): Stringable
+### textwrap(int $width = 10, string $break = PHP_EOL): Stringable
 
 ```php
-$text = Str::of('abcde')->wordwrap(width: 3)->value();
+$text = Str::of('abcde')->textwrap(width: 3)->value();
 
 // abc
 // de
@@ -95,7 +97,7 @@ $text = Str::of('abｃあいうｱｲｳ')->kana(option: 'KVa')->value();
 繋げて使う用。
 
 ```php
-$text = Str::of('abｃあいうｱｲｳ')->kana(option: 'KVa')->wordwrap(3)->value();
+$text = Str::of('abｃあいうｱｲｳ')->kana(option: 'KVa')->textwrap(3)->value();
 
 // abc
 // あいう
