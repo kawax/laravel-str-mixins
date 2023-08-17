@@ -9,8 +9,8 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Stringable;
 use ReflectionException;
 use Revolution\Laravel\Mixins\Str\Kana;
-use Revolution\Laravel\Mixins\Str\Truncate;
 use Revolution\Laravel\Mixins\Str\TextWrap;
+use Revolution\Laravel\Mixins\Str\Truncate;
 use Revolution\Laravel\Mixins\Stringable\Japanese;
 
 class StrMixinsServiceProvider extends ServiceProvider
